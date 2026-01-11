@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plantillas Cartas a Domicilio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#ffffff;
+ --ink:#0b0b0b;
+ --muted:#5f6068;
+ --gold:#D4AF37;
+ --shadow:0 8px 24px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+.wrapper{max-width:980px;margin:0 auto;padding:18px 14px 26px}
+.hero{
+ border:2px solid var(--gold);
+ border-radius:18px;
+ padding:16px 16px;
+ background:
+ radial-gradient(900px 420px at 12% 0%, rgba(212,175,55,.18), transparent 60%),
+ radial-gradient(800px 420px at 100% 0%, rgba(255,107,154,.12), transparent 55%),
+ #fff;
+ box-shadow:var(--shadow);
+}
+.brand{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.logo{display:flex;gap:12px;align-items:center}
+.mark{
+ width:46px;height:46px;border-radius:16px;
+ background:linear-gradient(145deg,var(--gold),rgba(212,175,55,.35));
+ box-shadow:0 10px 22px rgba(212,175,55,.18);
+ position:relative;
+}
+.mark:after{
+ content:"";
+ position:absolute; inset:12px 12px 12px 12px;
+ background:rgba(255,255,255,.55);
+ border-radius:14px;
+ clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+.title{font-family:"Playfair Display",serif;margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+.subtitle{margin:0;color:var(--muted);font-size:13px;line-height:1.45;max-width:75ch}
+.info{
+ margin:10px 0 0;
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.45;
+ max-width:80ch;
+}
+.info b{color:#2b2006}
+main{margin-top:14px;display:grid;gap:12px}
+
+.cat{
+ border:2px solid rgba(212,175,55,.55);
+ border-radius:18px;
+ background:#fff;
+ box-shadow:var(--shadow);
+ overflow:hidden;
+}
+.catHd{
+ padding:14px 14px 12px;
+ border-bottom:1px solid #eee;
+ background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(212,175,55,.04));
+ display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+.catHd b{font-size:14px;letter-spacing:.2px}
+.catHd .mini{font-size:12px;color:var(--muted)}
+.cards{padding:12px;display:grid;gap:10px}
+
+details.card{
+ border:1px solid #eee;
+ border-radius:16px;
+ background: linear-gradient(180deg,#fff, #fffdf7);
+ overflow:hidden;
+}
+details.card summary{
+ list-style:none;
+ cursor:pointer;
+ padding:12px 12px;
+ display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+}
+details.card summary::-webkit-details-marker{display:none}
+
+.tTitle{font-weight:900;display:flex;gap:8px;align-items:center}
+.tTitle .st{font-size:16px}
+.tMeta{margin-top:4px;color:var(--muted);font-size:12px}
+.badge{
+ border:1px solid rgba(212,175,55,.45);
+ background: rgba(212,175,55,.14);
+ color:#2b2006;
+ font-weight:900;font-size:11px;
+ padding:7px 10px;border-radius:999px;white-space:nowrap;
+}
+.body{
+ border-top:1px solid #eee;
+ padding:12px;
+ background: linear-gradient(180deg, rgba(250,241,214,.45), rgba(255,255,255,.95));
+}
+.paper{
+ border:1px solid rgba(212,175,55,.30);
+ background: linear-gradient(180deg, #fffaf0, #fff6e0);
+ border-radius: 16px;
+ padding:12px;
+ box-shadow:0 10px 18px rgba(0,0,0,.06);
+ white-space:pre-wrap;
+ line-height:1.6;
+ font-size:14px;
+ position:relative;
+}
+.paper:before{
+ content:"✨";
+ position:absolute;
+ right:10px; top:8px;
+ font-size:16px;
+ opacity:.55;
+}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+a.btn{
+ display:inline-block;
+ text-decoration:none;
+ border-radius: 14px;
+ padding:12px 12px;
+ font-weight:900;
+ border:1px solid #eee;
+ color:var(--ink);
+ background: #fff;
+}
+a.btn.primary{
+ border-color: rgba(49,196,141,.50);
+ background: rgba(49,196,141,.14);
+}
+.note{
+ margin-top:10px;
+ color:var(--muted);
+ font-size:12px;
+ line-height:1.35;
+}
+.footer{
+ margin-top:14px;
+ color:var(--muted);
+ font-size:12px;
+ line-height:1.35;
+ padding:0 2px;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+ <div class="hero">
+ <div class="brand">
+ <div class="logo">
+ <div class="mark" aria-hidden="true"></div>
+ <div>
+ <h1 class="title">Cartas a Domicilio</h1>
+ <p class="subtitle">Elige una plantilla, ábrela y presiona <b>Enviar por WhatsApp</b>. Puedes editar los nombres y detalles dentro de WhatsApp antes de enviarlo.</p>
+ <p class="info">Presentación: <b>sobre elegante</b>, <b>sello de ocre</b> e <b>impresión premium</b>.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <main>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>💌 Románticas</b>
+ <span class="mini">💖 🥂 🌙 🫶 Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Aniversario, con calma</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Hoy me quedé pensando en lo mucho que hemos construido sin darnos cuenta: las rutinas, las risas pequeñas, los silencios que no incomodan y esos abrazos que te arreglan el día sin preguntar nada.
+Gracias por elegirnos incluso cuando no todo es perfecto. Gracias por estar, por quedarte y por hacerme sentir que aquí, contigo, siempre vale la pena.
+
+[Tu línea personalizada]
+
+Feliz aniversario. [Detalle]
+Te amo con todo mi corazón,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Aniversario%2C%20con%20calma%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AHoy%20me%20qued%C3%A9%20pensando%20en%20lo%20mucho%20que%20hemos%20construido%20sin%20darnos%20cuenta%3A%20las%20rutinas%2C%20las%20risas%20chicas%2C%20los%20silencios%20que%20no%20incomodan%20y%20esos%20abrazos%20que%20te%20arreglan%20el%20d%C3%ADa%20sin%20preguntar%20nada.%0AGracias%20por%20elegirnos%20incluso%20cuando%20no%20todo%20es%20perfecto.%20Gracias%20por%20estar%2C%20por%20quedarte%20y%20por%20hacerme%20sentir%20que%20aqu%C3%AD%2C%20contigo%2C%20siempre%20vale%20la%20pena.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AFeliz%20aniversario.%20%5BDetalle%5D%0ATe%20quiero%20con%20el%20coraz%C3%B3n%20tranquilo%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Te elijo (simple y real)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+No tengo una frase perfecta ni una escena de película.
+Tengo algo más real: te elijo. Te elijo cuando estamos bien, y también cuando la vida se pone pesada. Te elijo porque contigo me nace ser mejor, y porque en tu forma de querer hay hogar.
+
+[Tu línea personalizada]
+
+Con amor,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Te%20elijo%20%28simple%20y%20real%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0ANo%20tengo%20una%20frase%20perfecta%20ni%20una%20escena%20de%20pel%C3%ADcula.%0ATengo%20algo%20m%C3%A1s%20real%3A%20te%20elijo.%20Te%20elijo%20cuando%20estamos%20bien%2C%20y%20tambi%C3%A9n%20cuando%20la%20vida%20se%20pone%20pesada.%20Te%20elijo%20porque%20contigo%20me%20nace%20ser%20mejor%2C%20y%20porque%20en%20tu%20forma%20de%20querer%20hay%20hogar.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ACon%20amor%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Sorpresa sin fecha</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Me dieron ganas de decirte algo sin esperar una fecha.
+Me haces bien. Me gusta tu forma de estar en el mundo, tu risa, tu paciencia… y cómo todo se siente un poco más fácil cuando te tengo cerca.
+No sé si tú lo notas, pero tu presencia me calma. Y eso, para mí, vale oro.
+
+[Tu línea personalizada]
+
+Un abrazo apretado,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Sorpresa%20sin%20fecha%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AMe%20dieron%20ganas%20de%20decirte%20algo%20sin%20esperar%20una%20fecha.%0AMe%20haces%20bien.%20Me%20gusta%20tu%20forma%20de%20estar%20en%20el%20mundo%2C%20tu%20risa%2C%20tu%20paciencia%E2%80%A6%20y%20c%C3%B3mo%20todo%20se%20siente%20un%20poco%20m%C3%A1s%20f%C3%A1cil%20cuando%20te%20tengo%20cerca.%0ANo%20s%C3%A9%20si%20t%C3%BA%20lo%20notas%2C%20pero%20tu%20presencia%20me%20calma.%20Y%20eso%2C%20para%20m%C3%AD%2C%20vale%20oro.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AUn%20abrazo%20apretado%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Me gustas (sin apurar)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Me gustas.
+No como “algo pasajero”, sino como una idea que me da ganas de quedarme. Me gusta lo que provocas en mí: la paz, las ganas, la ilusión.
+Si te nace, me encantaría invitarte a [Detalle]. Sin apuro, sin presión… solo con ganas de conocernos bonito.
+
+[Tu línea personalizada]
+
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Me%20gustas%20%28sin%20apurar%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AMe%20gustas.%0ANo%20como%20%E2%80%9Calgo%20pasajero%E2%80%9D%2C%20sino%20como%20una%20idea%20que%20me%20da%20ganas%20de%20quedarme.%20Me%20gusta%20lo%20que%20provocas%20en%20m%C3%AD%3A%20la%20paz%2C%20las%20ganas%2C%20la%20ilusi%C3%B3n.%0ASi%20te%20nace%2C%20me%20encantar%C3%ADa%20invitarte%20a%20%5BDetalle%5D.%20Sin%20apuro%2C%20sin%20presi%C3%B3n%E2%80%A6%20solo%20con%20ganas%20de%20conocernos%20bonito.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Pedir pololeo (de corazón)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+No quiero hacerlo con una frase rápida ni con un “ya po”.
+Quiero decírtelo bien, porque para mí esto importa: me gustas, me haces bien y me encanta la idea de construir algo contigo.
+Me gustaría que seamos pololos. No por “ponerle un título”, sino porque quiero elegirte con intención, cuidarte y estar.
+
+[Tu línea personalizada]
+
+¿Te gustaría pololear conmigo?
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Pedir%20pololeo%20%28con%20sentimiento%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0ANo%20quiero%20hacerlo%20con%20una%20frase%20r%C3%A1pida%20ni%20con%20un%20%E2%80%9Cya%20po%E2%80%9D.%0AQuiero%20dec%C3%ADrtelo%20bien%2C%20porque%20para%20m%C3%AD%20esto%20importa%3A%20me%20gustas%2C%20me%20haces%20bien%20y%20me%20encanta%20la%20idea%20de%20construir%20algo%20contigo.%0AMe%20gustar%C3%ADa%20que%20seamos%20pololos.%20No%20por%20%E2%80%9Cponerle%20un%20t%C3%ADtulo%E2%80%9D%2C%20sino%20porque%20quiero%20elegirte%20con%20intenci%C3%B3n%2C%20cuidarte%20y%20estar.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0A%C2%BFTe%20gustar%C3%ADa%20pololear%20conmigo%3F%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> San Valentín, dedicado</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Feliz San Valentín.
+Hoy solo quiero recordarte algo que a veces se nos olvida en la rutina: te amo con calma, con intención, con ganas de futuro.
+Me encanta lo que somos cuando nos cuidamos, cuando nos reímos, cuando nos miramos sin tener que decir mucho.
+Gracias por tu amor, por tu paciencia y por tu forma de hacerme sentir en casa.
+
+[Tu línea personalizada]
+
+Con todo mi amor,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20San%20Valent%C3%ADn%2C%20dedicado%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AFeliz%20San%20Valent%C3%ADn.%0AHoy%20solo%20quiero%20recordarte%20algo%20que%20a%20veces%20se%20nos%20olvida%20en%20la%20rutina%3A%20te%20amo%20con%20calma%2C%20con%20intenci%C3%B3n%2C%20con%20ganas%20de%20futuro.%0AMe%20encanta%20lo%20que%20somos%20cuando%20nos%20cuidamos%2C%20cuando%20nos%20re%C3%ADmos%2C%20cuando%20nos%20miramos%20sin%20tener%20que%20decir%20mucho.%0AGracias%20por%20tu%20amor%2C%20por%20tu%20paciencia%20y%20por%20tu%20forma%20de%20hacerme%20sentir%20en%20casa.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ACon%20todo%20mi%20cari%C3%B1o%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">💌</span> Felicitaciones por San Valentín (pareja)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+¡Feliz San Valentín, amor!
+Qué bonito es tener a alguien con quien la vida se siente más liviana. Gracias por lo cotidiano: por los detalles, por las conversaciones, por la compañía y por quedarte incluso en los días raros.
+Hoy te celebro a ti, y nos celebro a nosotros.
+
+[Tu línea personalizada]
+
+Te amo,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Felicitaciones%20por%20San%20Valent%C3%ADn%20%28pareja%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0A%C2%A1Feliz%20San%20Valent%C3%ADn%2C%20amor%21%0AQu%C3%A9%20bonito%20es%20tener%20a%20alguien%20con%20quien%20la%20vida%20se%20siente%20m%C3%A1s%20liviana.%20Gracias%20por%20lo%20cotidiano%3A%20por%20los%20detalles%2C%20por%20las%20conversaciones%2C%20por%20la%20compa%C3%B1%C3%ADa%20y%20por%20quedarte%20incluso%20en%20los%20d%C3%ADas%20raros.%0AHoy%20te%20celebro%20a%20ti%2C%20y%20nos%20celebro%20a%20nosotros.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ATe%20amo%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>🎂 Cumpleaños</b>
+ <span class="mini">🎉 🧁 🥂 ✨ Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🎀</span> Cumpleaños, de verdad</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Hoy celebro que existes.
+Ojalá este año te trate bonito: con calma, con salud, con señales buenas y con motivos reales para sonreír. Que te lleguen cosas lindas, pero sobre todo, que te sientas querido/a de verdad.
+Si pudiera pedir algo para ti, pediría paz mental, abrazos honestos y un amor que no pese.
+
+[Tu línea personalizada]
+
+Feliz cumpleaños.
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Cumplea%C3%B1os%2C%20de%20verdad%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AHoy%20celebro%20que%20existes.%0AOjal%C3%A1%20este%20a%C3%B1o%20te%20trate%20bonito%3A%20con%20calma%2C%20con%20salud%2C%20con%20se%C3%B1ales%20buenas%20y%20con%20motivos%20reales%20para%20sonre%C3%ADr.%20Que%20te%20lleguen%20cosas%20lindas%2C%20pero%20sobre%20todo%2C%20que%20te%20sientas%20querido/a%20de%20verdad.%0ASi%20pudiera%20pedir%20algo%20para%20ti%2C%20pedir%C3%ADa%20paz%20mental%2C%20abrazos%20honestos%20y%20un%20amor%20que%20no%20pese.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AFeliz%20cumplea%C3%B1os.%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🎀</span> Cumpleaños con humor fino</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Feliz cumpleaños 🥂
+Que este año te traiga plata, paz… y gente que no te quite energía 😌
+Y si se puede, que te traiga días ricos: de esos que terminan con la sensación de “qué buena vida”.
+
+[Tu línea personalizada]
+
+Un abrazo grande,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Cumplea%C3%B1os%20con%20humor%20fino%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AFeliz%20cumplea%C3%B1os%20%F0%9F%A5%82%0AQue%20este%20a%C3%B1o%20te%20traiga%20plata%2C%20paz%E2%80%A6%20y%20gente%20que%20no%20te%20quite%20energ%C3%ADa%20%F0%9F%98%8C%0AY%20si%20se%20puede%2C%20que%20te%20traiga%20d%C3%ADas%20ricos%3A%20de%20esos%20que%20terminan%20con%20la%20sensaci%C3%B3n%20de%20%E2%80%9Cqu%C3%A9%20buena%20vida%E2%80%9D.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AUn%20abrazo%20grande%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🎀</span> Cumpleaños para amor (más romántica)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Feliz cumpleaños, amor.
+Hoy te miro y me da orgullo quererte. Me encanta tu forma de ser, tu fuerza y también esa parte sensible que a veces escondes.
+Gracias por existir y por dejarme estar cerca. Que este nuevo año de vida te traiga cosas que te hagan bien: calma, proyectos bonitos, y momentos donde te sientas plenamente tú.
+
+[Tu línea personalizada]
+
+Te amo. Y te celebro.
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Cumplea%C3%B1os%20para%20amor%20%28m%C3%A1s%20rom%C3%A1ntica%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AFeliz%20cumplea%C3%B1os%2C%20amor.%0AHoy%20te%20miro%20y%20me%20da%20orgullo%20quererte.%20Me%20encanta%20tu%20forma%20de%20ser%2C%20tu%20fuerza%20y%20tambi%C3%A9n%20esa%20parte%20sensible%20que%20a%20veces%20escondes.%0AGracias%20por%20existir%20y%20por%20dejarme%20estar%20cerca.%20Que%20este%20nuevo%20a%C3%B1o%20de%20vida%20te%20traiga%20cosas%20que%20te%20hagan%20bien%3A%20calma%2C%20proyectos%20bonitos%2C%20y%20momentos%20donde%20te%20sientas%20plenamente%20t%C3%BA.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ATe%20amo.%20Y%20te%20celebro.%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🎀</span> Cumpleaños para amiga/o (con cariño)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Feliz cumpleaños.
+Eres de esas personas que uno agradece en la vida. Gracias por tu amistad, por las conversaciones eternas, por los consejos y por estar cuando importa.
+Ojalá hoy te regalen amor del bueno: el que se nota, el que se queda, el que suma.
+
+[Tu línea personalizada]
+
+Con cariño,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Cumplea%C3%B1os%20para%20amiga/o%20%28con%20cari%C3%B1o%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AFeliz%20cumplea%C3%B1os.%0AEres%20de%20esas%20personas%20que%20uno%20agradece%20en%20la%20vida.%20Gracias%20por%20tu%20amistad%2C%20por%20las%20conversaciones%20eternas%2C%20por%20los%20consejos%20y%20por%20estar%20cuando%20importa.%0AOjal%C3%A1%20hoy%20te%20regalen%20amor%20del%20bueno%3A%20el%20que%20se%20nota%2C%20el%20que%20se%20queda%2C%20el%20que%20suma.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ACon%20cari%C3%B1o%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>🕊️ Perdón</b>
+ <span class="mini">🕊️ 🤍 🌿 ✨ Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🤍</span> Perdón responsable</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Te escribo para hacerme cargo.
+Lo que pasó no estuvo bien y entiendo el daño que te hice. Lo siento de verdad.
+No quiero justificarme: quiero escucharte, entenderte y reparar como corresponde. Me importas, y por eso no quiero que esto quede en un “ya fue”.
+
+[Tu línea personalizada]
+
+Si me dejas, quiero hacerlo distinto.
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Perd%C3%B3n%20responsable%0A%0ATexto%3A%0A%5BNombre%5D%2C%0ATe%20escribo%20para%20hacerme%20cargo.%0ALo%20que%20pas%C3%B3%20no%20estuvo%20bien%20y%20entiendo%20el%20da%C3%B1o%20que%20te%20hice.%20Lo%20siento%20de%20verdad.%0ANo%20quiero%20justificarme%3A%20quiero%20escucharte%2C%20entenderte%20y%20reparar%20como%20corresponde.%20Me%20importas%2C%20y%20por%20eso%20no%20quiero%20que%20esto%20quede%20en%20un%20%E2%80%9Cya%20fue%E2%80%9D.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ASi%20me%20dejas%2C%20quiero%20hacerlo%20distinto.%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🤍</span> Perdón por palabras duras</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Me quedé pensando en lo que dije y me dio vergüenza.
+Fui injusto/a, y sé que te dolió. No era necesario, no era justo, y tú no mereces recibir mis frustraciones.
+Quiero pedirte perdón de verdad, sin excusas. Y también prometerte que voy a cuidar mi forma de hablarte.
+
+[Tu línea personalizada]
+
+Perdón.
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Perd%C3%B3n%20por%20palabras%20duras%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AMe%20qued%C3%A9%20pensando%20en%20lo%20que%20dije%20y%20me%20dio%20verg%C3%BCenza.%0AFui%20injusto/a%2C%20y%20s%C3%A9%20que%20te%20doli%C3%B3.%20No%20era%20necesario%2C%20no%20era%20justo%2C%20y%20t%C3%BA%20no%20mereces%20recibir%20mis%20frustraciones.%0AQuiero%20pedirte%20perd%C3%B3n%20de%20verdad%2C%20sin%20excusas.%20Y%20tambi%C3%A9n%20prometerte%20que%20voy%20a%20cuidar%20mi%20forma%20de%20hablarte.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0APerd%C3%B3n.%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🤍</span> Perdón corto (pero sentido)</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Lo siento. De verdad.
+Me importas más de lo que a veces demuestro, y no quiero que te quede esa herida por algo que pude haber hecho mejor.
+
+[Tu línea personalizada]
+
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Perd%C3%B3n%20corto%20%28pero%20sentido%29%0A%0ATexto%3A%0A%5BNombre%5D%2C%0ALo%20siento.%20De%20verdad.%0AMe%20importas%20m%C3%A1s%20de%20lo%20que%20a%20veces%20demuestro%2C%20y%20no%20quiero%20que%20te%20quede%20esa%20herida%20por%20algo%20que%20pude%20haber%20hecho%20mejor.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>✨ Agradecer</b>
+ <span class="mini">🙏 ✨ 🌼 🤍 Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">✨</span> Gracias por estar</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Gracias por estar.
+Por tu apoyo, por tu paciencia y por tu forma de hacer que todo sea un poquito más liviano. A veces no lo digo, pero lo valoro mucho.
+Eres importante para mí, y quería que lo supieras de manera clara.
+
+[Tu línea personalizada]
+
+Con cariño,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Gracias%20por%20estar%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AGracias%20por%20estar.%0APor%20tu%20apoyo%2C%20por%20tu%20paciencia%20y%20por%20tu%20forma%20de%20hacer%20que%20todo%20sea%20un%20poquito%20m%C3%A1s%20liviano.%20A%20veces%20no%20lo%20digo%2C%20pero%20lo%20valoro%20mucho.%0AEres%20importante%20para%20m%C3%AD%2C%20y%20quer%C3%ADa%20que%20lo%20supieras%20de%20manera%20clara.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ACon%20cari%C3%B1o%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">✨</span> Gracias por un favor</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Quería agradecerte por [Detalle].
+Me ayudaste más de lo que te imaginas, y de verdad lo valoro. Hay gestos que se quedan, y el tuyo fue uno de esos.
+Gracias por tu tiempo y por tu buena disposición.
+
+[Tu línea personalizada]
+
+Un abrazo,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Gracias%20por%20un%20favor%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AQuer%C3%ADa%20agradecerte%20por%20%5BDetalle%5D.%0AMe%20ayudaste%20m%C3%A1s%20de%20lo%20que%20te%20imaginas%2C%20y%20de%20verdad%20lo%20valoro.%20Hay%20gestos%20que%20se%20quedan%2C%20y%20el%20tuyo%20fue%20uno%20de%20esos.%0AGracias%20por%20tu%20tiempo%20y%20por%20tu%20buena%20disposici%C3%B3n.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AUn%20abrazo%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>🌿 Familia y Amistad</b>
+ <span class="mini">🌿 👪 🤍 ✨ Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🌿</span> Día de la Madre</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Gracias por tu amor, por tu entrega y por todo lo que haces sin pedir nada.
+Gracias por lo que se ve y por lo que nadie ve: por sostener, por cuidar, por pensar en todos.
+Eres hogar.
+
+[Tu línea personalizada]
+
+Feliz día.
+Con amor,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20D%C3%ADa%20de%20la%20Madre%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AGracias%20por%20tu%20amor%2C%20por%20tu%20entrega%20y%20por%20todo%20lo%20que%20haces%20sin%20pedir%20nada.%0AGracias%20por%20lo%20que%20se%20ve%20y%20por%20lo%20que%20nadie%20ve%3A%20por%20sostener%2C%20por%20cuidar%2C%20por%20pensar%20en%20todos.%0AEres%20hogar.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AFeliz%20d%C3%ADa.%0ACon%20amor%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🌿</span> Amistad de verdad</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Gracias por ser de esas personas que suman.
+Me hace bien tenerte cerca, y me encanta saber que puedo contar contigo. Tu amistad es un regalo, de esos que no se compran.
+Ojalá la vida te devuelva con creces lo bueno que entregas.
+
+[Tu línea personalizada]
+
+Te quiero,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Amistad%20de%20verdad%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AGracias%20por%20ser%20de%20esas%20personas%20que%20suman.%0AMe%20hace%20bien%20tenerte%20cerca%2C%20y%20me%20encanta%20saber%20que%20puedo%20contar%20contigo.%20Tu%20amistad%20es%20un%20regalo%2C%20de%20esos%20que%20no%20se%20compran.%0AOjal%C3%A1%20la%20vida%20te%20devuelva%20con%20creces%20lo%20bueno%20que%20entregas.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ATe%20quiero%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ <section class="cat">
+ <div class="catHd">
+ <b>🖋️ Formal</b>
+ <span class="mini">🖋️ 📜 ✨ 🤍 Plantillas listas para enviar</span>
+ </div>
+ <div class="cards">
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🖋️</span> Pésame respetuoso</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Lamento profundamente tu pérdida.
+Quiero que sepas que cuentas conmigo para lo que necesites, hoy y en los días que vengan. Acompaño tu dolor con respeto y con cariño.
+
+[Tu línea personalizada]
+
+Con respeto,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20P%C3%A9same%20respetuoso%0A%0ATexto%3A%0A%5BNombre%5D%2C%0ALamento%20profundamente%20tu%20p%C3%A9rdida.%0AQuiero%20que%20sepas%20que%20cuentas%20conmigo%20para%20lo%20que%20necesites%2C%20hoy%20y%20en%20los%20d%C3%ADas%20que%20vengan.%20Acompa%C3%B1o%20tu%20dolor%20con%20respeto%20y%20con%20cari%C3%B1o.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0ACon%20respeto%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ <details class="card">
+ <summary>
+ <div>
+ <div class="tTitle"><span class="st" aria-hidden="true">🖋️</span> Felicitaciones por logro</div>
+ <div class="tMeta">Vista previa + envío por WhatsApp</div>
+ </div>
+ <div class="badge">Abrir</div>
+ </summary>
+ <div class="body">
+ <div class="paper">[Nombre],
+Felicitaciones por [Detalle].
+Es un logro merecido, fruto de tu trabajo, constancia y disciplina. Me alegra mucho verte avanzar y cumplir metas importantes.
+
+[Tu línea personalizada]
+
+Atentamente,
+[Tu nombre]</div>
+ <div class="actions">
+ <a class="btn primary" href="https://wa.me/56981657780?text=Hola%21%20Quiero%20pedir%20una%20carta.%0APlantilla%3A%20Felicitaciones%20por%20logro%0A%0ATexto%3A%0A%5BNombre%5D%2C%0AFelicitaciones%20por%20%5BDetalle%5D.%0AEs%20un%20logro%20merecido%2C%20fruto%20de%20tu%20trabajo%2C%20constancia%20y%20disciplina.%20Me%20alegra%20mucho%20verte%20avanzar%20y%20cumplir%20metas%20importantes.%0A%0A%5BTu%20l%C3%ADnea%20personalizada%5D%0A%0AAtentamente%2C%0A%5BTu%20nombre%5D%0A%0ADatos%20de%20entrega%3A%0A-%20Nombre%20comprador%3A%0A-%20Direcci%C3%B3n%3A%0A-%20Comuna/Ciudad%3A%0A-%20Horario%20preferido%3A%0A-%20Referencia%20%28opcional%29%3A%0A%0APresentaci%C3%B3n%3A%0A-%20Sobre%20elegante%0A-%20Sello%20de%20ocre%0A-%20Impresi%C3%B3n%20premium%0A%0AGracias%21" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+ </div>
+ <div class="note">Tip: dentro de WhatsApp puedes reemplazar <b>[Nombre]</b>, <b>[Tu nombre]</b>, <b>[Detalle]</b> y <b>[Tu línea personalizada]</b> antes de enviarlo.</div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+ </main>
+ <div class="footer">© Cartas a Domicilio — Solicitudes por WhatsApp.</div>
+</div>
+</body>
+</html>
